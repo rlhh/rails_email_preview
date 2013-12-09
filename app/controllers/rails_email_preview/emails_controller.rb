@@ -22,6 +22,7 @@ class RailsEmailPreview::EmailsController < ::RailsEmailPreview::ApplicationCont
 
   # render actual email content
   def show_raw
+    debugger
     I18n.with_locale @email_locale do
       @mail = preview_mail(edit_links: (@part_type == 'text/html'))
       RailsEmailPreview.run_before_render(@mail, @preview_class.name, @mail_action)
